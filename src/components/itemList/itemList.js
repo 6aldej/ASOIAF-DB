@@ -42,7 +42,7 @@ function ItemList ({getData, onItemSelected, onNextPage, onPrevPage, renderItem,
                 {items}
             </ul>
             <div className="pagination">
-                <button onClick={onPrevPage}>NextPage</button>
+                <button onClick={onPrevPage}>PrevPage</button>
                 <span>{page}</span>
                 <button onClick={onNextPage}>NextPage</button>
             </div>
