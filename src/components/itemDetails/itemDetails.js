@@ -1,55 +1,52 @@
 import React, {Component} from 'react';
-import './charDetails.css';
-import gotService from '../../services/gotService.js';
+import './itemDetails.css';
 
-const Field = ({char, field, label}) => {
+const Field = ({item, field, label}) => {
     return (
         <li className="list-group-item d-flex justify-content-between">
             <span className="term">{label}</span>
-            <span>{char[field]}</span>
+            <span>{item[field]}</span>
         </li>
     )
 }
+export {Field};
 
-export {Field}
-export default class CharDetails extends Component {
-
-    gotService = new gotService();
+export default class ItemDetails extends Component {
 
     state = {
-        char: null
+        item: null
     }
 
     componentDidMount() {
-        this.updateChar();
+        this.updateItem();
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.charId !== prevProps.charId) {
-            this.updateChar();
+        if (this.props.itemId !== prevProps.itemId) {
+            this.updateItem();
         }
     }
 
-    updateChar() {
-        const {charId} = this.props;
-        if (!charId) {
+    updateItem() {
+        const {itemId, getData} = this.props;
+        if (!itemId) {
             return;
         }
 
-        this.gotService.getCharacter(charId)
-            .then((char) => {
-                this.setState({char})
+        getData(itemId)
+            .then((item) => {
+                this.setState({item})
             })
     }
 
     render() {
 
-        if (!this.state.char) {
+        if (!this.state.item) {
             return <span className='select-error'>Please select a character</span>
         }
 
-        const {char} = this.state;
-        const {name} = char;
+        const {item} = this.state;
+        const {name} = item;
 
         return (
             <div className="char-details rounded">
@@ -57,7 +54,7 @@ export default class CharDetails extends Component {
                 <ul className="list-group list-group-flush">
                     {
                         React.Children.map(this.props.children, (child) => {
-                            return React.cloneElement(child, {char})
+                            return React.cloneElement(child, {item})
                         })
                     }
                 </ul>
