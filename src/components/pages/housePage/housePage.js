@@ -10,7 +10,8 @@ export default class HousePage extends Component {
 
     state = {
         selectedHouse: null,
-        error: false
+        error: false,
+        page: 1,
     }
 
     componentDidCatch() {
@@ -25,6 +26,32 @@ export default class HousePage extends Component {
         })
     }
 
+    onNextPage = () => {
+        let page = this.state.page;
+        let curPage = ++page;
+        
+        if (curPage>45) {
+            curPage=45;
+        }
+
+        this.setState({
+            page: curPage
+        })
+    }
+
+    onPrevPage = () => {
+        let page = this.state.page;
+        let curPage = --page;
+        
+        if (curPage<1) {
+            curPage=1;
+        }
+
+        this.setState({
+            page: curPage
+        })
+    }
+
     render () {
 
         if (this.state.error) {
@@ -32,9 +59,12 @@ export default class HousePage extends Component {
         }
 
         const itemList = (
-            <ItemList 
+            <ItemList
+                page={this.state.page}
                 onItemSelected={this.onItemSelected}
-                getData={this.gotService.getAllHouses}
+                onPrevPage={this.onPrevPage}
+                onNextPage={this.onNextPage}
+                getData={(a) => this.gotService.getAllHouses(a)}
                 renderItem={({name}) => `${name}`}
             />
         )

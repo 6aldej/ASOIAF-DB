@@ -2,16 +2,17 @@ import React, {useState, useEffect} from 'react';
 import './itemList.css';
 import Spinner from '../spinner';
 
-function ItemList ({getData, onItemSelected, renderItem}) {
+function ItemList ({getData, onItemSelected, onNextPage, onPrevPage, renderItem, page}) {
     
     const [itemList, updateList] = useState([]);
 
     useEffect(() => {
-        getData()
+        console.log('PAGE', page)
+        getData(page)
             .then( (data) => {
                 updateList(data)
             })
-    }, [])
+    }, [page])
 
     function renderItems(arr) {
         return arr.map((item) => {
@@ -36,9 +37,16 @@ function ItemList ({getData, onItemSelected, renderItem}) {
     const items = renderItems(itemList);
 
     return (
-        <ul className="item-list list-group">
-            {items}
-        </ul>
+        <div>
+            <ul className="item-list list-group">
+                {items}
+            </ul>
+            <div className="pagination">
+                <button onClick={onPrevPage}>NextPage</button>
+                <span>{page}</span>
+                <button onClick={onNextPage}>NextPage</button>
+            </div>
+        </div>
     );
 }
 

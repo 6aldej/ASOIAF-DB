@@ -8,12 +8,39 @@ class BookPage extends Component {
     gotService = new gotService();
 
     state = {
-        error: false
+        error: false,
+        page: 1,
     }
 
     componentDidCatch() {
         this.setState({
             error: true
+        })
+    }
+
+    onNextPage = () => {
+        let page = this.state.page;
+        let curPage = ++page;
+        
+        if (curPage>2) {
+            curPage=2;
+        }
+
+        this.setState({
+            page: curPage
+        })
+    }
+
+    onPrevPage = () => {
+        let page = this.state.page;
+        let curPage = --page;
+        
+        if (curPage<1) {
+            curPage=1;
+        }
+
+        this.setState({
+            page: curPage
         })
     }
 
@@ -24,10 +51,13 @@ class BookPage extends Component {
         }
 
         return (
-            <ItemList 
+            <ItemList
+                page={this.state.page}
                 onItemSelected={(itemId) => {
                     this.props.history.push(itemId)
                 }}
+                onPrevPage={this.onPrevPage}
+                onNextPage={this.onNextPage}
                 getData={this.gotService.getAllBooks}
                 renderItem={({name}) => `${name}`}
             />
