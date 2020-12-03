@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Row, Container} from 'reactstrap';
+import {Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
 import ErrorMessage from '../errorMessage';
@@ -7,6 +7,7 @@ import CharacterPage from '../pages/characterPage';
 import BookPage from '../pages/bookPage';
 import BookItem from '../pages/bookPage/bookItem';
 import HousePage from '../pages/housePage';
+import WelcomPage from '../pages/welcomPage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 export default class App extends Component {
@@ -45,17 +46,11 @@ export default class App extends Component {
                         <Header />
                     </Container>
                     <Container>
-                        <Row>
-                            <Col lg={{size: 5, offset: 0}}>
-                                {char}
-                                <button
-                                    className="toggle-btn"
-                                    onClick={this.toggleRandomChar}> 
-                                    Toggle random character  
-                                </button>
-                            </Col>
-                        </Row>
-
+                        <Route path='/' exact render={
+                        () => {
+                            return <WelcomPage char={char} toggleRandomChar={this.toggleRandomChar}/>
+                        }
+                        }/>
                         <Route path='/characters' component={CharacterPage}/>
                         <Route path='/houses' component={HousePage}/>
                         <Route path='/books' exact component={BookPage}/>

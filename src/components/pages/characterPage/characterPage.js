@@ -4,6 +4,7 @@ import ItemDetails, {Field} from '../../itemDetails';
 import ErrorMessage from '../../errorMessage';
 import gotService from '../../../services/gotService.js';
 import RowBlock from '../../rowBlock';
+import SearchPanel from '../../searchPanel';
 
 export default class CharacterPage extends Component {
     gotService = new gotService();
@@ -12,6 +13,10 @@ export default class CharacterPage extends Component {
         selectedChar: null,
         error: false,
         page: 5,
+        term: '',
+        search: false,
+        btnflag: true,
+        label: 'character'
     }
 
     componentDidCatch() {
@@ -52,8 +57,21 @@ export default class CharacterPage extends Component {
         })
     }
 
+    onUpdateSearch = (term) => {
+        this.setState({term, search:false})
+        if (term) {
+            this.setState({btnflag:false})
+        } else {
+            this.setState({btnflag:true})
+        }
+    }
+
+    searchStart = () => {
+        this.setState({search:true})
+    }
+
     render () {
-        console.log(this.state.page)
+        const {search, page, term, btnflag, label} = this.state
 
         if (this.state.error) {
             return <ErrorMessage/>
@@ -61,11 +79,14 @@ export default class CharacterPage extends Component {
 
         const itemList = (
             <ItemList
-                page={this.state.page}
+                page={page}
+                term={term}
+                search={search}
                 onItemSelected={this.onItemSelected}
                 onPrevPage={this.onPrevPage}
                 onNextPage={this.onNextPage}
                 getData={(a) => this.gotService.getAllCharacters(a)}
+                getName={(a) => this.gotService.getCharacterByName(a)}
                 renderItem={({name, gender}) => `${name} (${gender})`}
             />
         )
@@ -74,6 +95,7 @@ export default class CharacterPage extends Component {
             <ItemDetails 
                 itemId={this.state.selectedChar}
                 getData={this.gotService.getCharacter}
+                label={label}
             >
                 <Field field="gender" label="Gender"/>
                 <Field field="born" label="Born"/>
@@ -83,7 +105,17 @@ export default class CharacterPage extends Component {
         )
 
         return (
-            <RowBlock left={itemList} right={itemDetails}/>
+            <>
+                <SearchPanel 
+                    searchStart={this.searchStart} 
+                    btnflag={btnflag} 
+                    onUpdateSearch={this.onUpdateSearch}
+                />
+                <RowBlock 
+                    left={itemList} 
+                    right={itemDetails}
+                />
+            </>
         )
     }
 }

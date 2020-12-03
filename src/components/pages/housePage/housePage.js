@@ -12,6 +12,7 @@ export default class HousePage extends Component {
         selectedHouse: null,
         error: false,
         page: 1,
+        label: 'House'
     }
 
     componentDidCatch() {
@@ -73,6 +74,7 @@ export default class HousePage extends Component {
             <ItemDetails 
                 itemId={this.state.selectedHouse}
                 getData={this.gotService.getHouse}
+                label={this.state.label}
             >
                 <Field field="name" label="Name"/>
                 <Field field="region" label="Region"/>

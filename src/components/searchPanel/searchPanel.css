@@ -1,0 +1,8 @@
+.search-panel {
+    display: flex;
+    margin: 10px;
+}
+
+.search-panel button {
+    margin-left: 20px;
+}
