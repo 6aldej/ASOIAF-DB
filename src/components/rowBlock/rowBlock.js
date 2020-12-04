@@ -4,10 +4,10 @@ import {Col, Row} from 'reactstrap';
 const RowBlock = ({left, right}) => {
     return (
     <Row>
-        <Col md='6'>
+        <Col className="left" md='6'>
             {left}  
         </Col>
-        <Col md='6'>
+        <Col className="right" md='6'>
             {right}
         </Col>
     </Row>

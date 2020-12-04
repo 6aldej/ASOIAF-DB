@@ -83,7 +83,7 @@ const View = ({char}) => {
     }
 
     return (
-        <>
+        <div>
             <h4>Random Character: {name}</h4>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item d-flex justify-content-between">
@@ -103,6 +103,6 @@ const View = ({char}) => {
                     <span>{fullnessDB(culture)}</span>
                 </li>
             </ul>
-        </>
+        </div>
     )
 }

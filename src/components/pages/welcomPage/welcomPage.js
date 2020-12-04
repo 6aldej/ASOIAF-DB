@@ -5,11 +5,11 @@ import './welcomPage.css'
 const WelcomPage = ({char, toggleRandomChar}) => {
         return (
             <div className="welcom-page">
-                <h1>Welcome&ensp;to&ensp;the&ensp;A&ensp;song&ensp;of&ensp;ice&ensp;and&ensp;fire&ensp;database</h1>
+                <h1>Welcome&ensp;to&ensp;the&ensp;song&ensp;of&ensp;ice&ensp;and&ensp;fire&ensp;database</h1>
                 <Row>
                     <Col lg={{size: 5, offset: 0}}>
                         <button
-                            className="toggle-btn"
+                            className="random-btn"
                             onClick={toggleRandomChar}> 
                             RANDOM Character 
                         </button>

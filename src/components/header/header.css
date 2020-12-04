@@ -7,7 +7,7 @@
 }
 
 .header-title img {
-    padding-top: 5vh;
+    padding-top: 7vh;
     width: 30vh;
 }
 
@@ -22,6 +22,7 @@
 .header-links li {
     margin-right: 25px;
     font-size: 18px;
+    transition: .5s ease-out;
 }
 
 .header-links li:hover {

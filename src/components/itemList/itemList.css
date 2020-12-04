@@ -2,6 +2,12 @@
     cursor: pointer;
 }
 
+.item-list .list-group-item:hover {
+    background-color:  rgb(122, 117, 117);
+    color: #fff;
+    cursor: pointer;
+}
+
 .pagination {
     margin-top: 10px;
     display: flex;
@@ -12,15 +18,33 @@
     text-align: center;
     margin: 0;
     padding: 0;
-    width: 25%;
+    width: 15%;
+    height: 50%;
     color: #fff;
     font-size: 30px;
     border-radius:20px;
-    background-color: rgb(223, 63, 63);
+    background-color: rgba(240, 200, 200, 0.349);
 }
 
 .pagination button {
     width: 30%;
-    border-radius: 20px;
-    font-weight: bolder;
+    height: 5vh;
+    margin-bottom: 15px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #080808c4;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    transition: .5s ease-out;
+}
+
+.pagination button:hover {
+    background-color: #af3737ec;
+    transition: .5s ease-out;
+}
+
+.pagination button:active {
+    color: #000;
+    background-color: #fff;
+    transition: .5s ease-out;
 }

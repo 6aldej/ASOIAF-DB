@@ -6,7 +6,7 @@
 .welcom-page h1 {
     font-family: 'GOT';
     font-weight: 300;
-    margin-top: 7vh;
+    margin-top: 8vh;
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -23,9 +23,25 @@
 }
 
 .information {
-    margin-top: 30px;
     padding: 30px;
     background: rgba(172, 166, 166, 0.5);
     color: #fff;
     border-radius: 30px;
+}
+
+.random-btn {
+    height: 5vh;
+    width: 15vw;
+    margin-bottom: 15px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #080808c4;
+    border-radius: 15px;
+    border: 1px solid #fff;
+}
+
+.random-btn:active {
+    color: #000;
+    background-color: #fff;
+    transition: .5s ease-out;
 }

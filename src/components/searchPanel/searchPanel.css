@@ -5,4 +5,25 @@
 
 .search-panel button {
     margin-left: 20px;
+    height: 4vh;
+    min-width: 7vw;
+    color: #000;
+    cursor: pointer;
+    background-color: #fff;
+    transition: .5s ease-out;
+    border-radius: 15px;
+    border: 1px solid #000;
+}
+
+.search-panel button:active {
+    color: #fff;
+    background-color: #000;
+    transition: .5s ease-out;
+}
+
+.search-panel button:disabled {
+    transition: .5s ease-out;
+    cursor: not-allowed;
+    color: #fff;
+    background-color: rgba(240, 200, 200, 0.349);
 }

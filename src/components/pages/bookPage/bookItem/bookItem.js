@@ -13,6 +13,7 @@ export default class BookItem extends Component {
             <ItemDetails 
                 itemId={this.props.bookId}
                 getData={this.gotService.getBook}
+                label={'book'}
             >
                 <Field field="numberOfPages" label="Number of pages"/>
                 <Field field="released" label="Released"/>

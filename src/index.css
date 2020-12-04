@@ -42,3 +42,6 @@ a:active {
     text-decoration: none;
     color: inherit;
 }
+
+button:active{outline: none}
+button:focus {outline: none}

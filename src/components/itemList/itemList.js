@@ -38,7 +38,7 @@ function ItemList ({getData, getName, onItemSelected, onNextPage, onPrevPage, re
         })
     }
 
-    const spinner = (<Spinner/>)
+    const spinner = (<Spinner/>);
     const items = renderItems(itemList);
 
     const pagination = (
@@ -47,14 +47,14 @@ function ItemList ({getData, getName, onItemSelected, onNextPage, onPrevPage, re
             <span>{page}</span>
             <button onClick={onNextPage}>NextPage</button>
         </div>
-    )
+    );
 
     return (
         <div>
             <ul className="item-list list-group">
                 {itemList ? items : spinner}
             </ul>
-            {search ? null : pagination}
+            {search || !itemList ? null : pagination}
         </div>
     );
 }

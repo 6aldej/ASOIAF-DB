@@ -9,7 +9,7 @@ class BookPage extends Component {
 
     state = {
         error: false,
-        page: 1,
+        page: 1
     }
 
     componentDidCatch() {
@@ -45,6 +45,7 @@ class BookPage extends Component {
     }
 
     render () {
+        const {page} = this.state
 
         if (this.state.error) {
             return <ErrorMessage/>
@@ -52,7 +53,7 @@ class BookPage extends Component {
 
         return (
             <ItemList
-                page={this.state.page}
+                page={page}
                 onItemSelected={(itemId) => {
                     this.props.history.push(itemId)
                 }}

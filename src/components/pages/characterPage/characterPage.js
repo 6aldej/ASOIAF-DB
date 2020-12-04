@@ -15,8 +15,7 @@ export default class CharacterPage extends Component {
         page: 5,
         term: '',
         search: false,
-        btnflag: true,
-        label: 'character'
+        btnflag: true
     }
 
     componentDidCatch() {
@@ -71,7 +70,7 @@ export default class CharacterPage extends Component {
     }
 
     render () {
-        const {search, page, term, btnflag, label} = this.state
+        const {search, page, term, btnflag} = this.state
 
         if (this.state.error) {
             return <ErrorMessage/>
@@ -95,7 +94,7 @@ export default class CharacterPage extends Component {
             <ItemDetails 
                 itemId={this.state.selectedChar}
                 getData={this.gotService.getCharacter}
-                label={label}
+                label={'character'}
             >
                 <Field field="gender" label="Gender"/>
                 <Field field="born" label="Born"/>
