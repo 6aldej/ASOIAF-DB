@@ -1,24 +1,25 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
+import logoImg from '../../img/logo.png'
 import './header.css';
 
 const Header = () => {
     return (
         <div className="header-block">
-            <h3 className="header-title">
+            <div className="header-title">
                 <Link to='/'>
-                Game of Thrones DB
+                    <img src={logoImg} alt="logo"/>
                 </Link>
-            </h3>
+            </div>
             <ul className="header-links">
                 <li>
-                    <Link to='/characters/'>Characters</Link>
+                    <NavLink to='/characters/' activeClassName="active">Characters</NavLink>
                 </li>
                 <li>
-                    <Link to='/houses/'>Houses</Link>
+                    <NavLink to='/houses/' activeClassName="active">Houses</NavLink>
                 </li>
                 <li>
-                    <Link to='/books/'>Books</Link>   
+                    <NavLink to='/books/' activeClassName="active">Books</NavLink>   
                 </li>
             </ul>
         </div>

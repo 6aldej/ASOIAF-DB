@@ -1,14 +1,14 @@
 .header-block {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 7vh;
     align-items: center;
     height: 80px;
 }
 
-.header-title {
-    font-size: 24px;
-    color: #fff;
-    margin: 0;
+.header-title img {
+    padding-top: 5vh;
+    width: 30vh;
 }
 
 .header-links {
@@ -20,6 +20,16 @@
 }
 
 .header-links li {
-    margin-right: 20px;
+    margin-right: 25px;
     font-size: 18px;
+}
+
+.header-links li:hover {
+    padding: 2px;
+    border-radius: 5px;
+    background: rgba(172, 166, 166, 0.5);
+}
+
+.header-links li a:hover, .active {
+    border-bottom: solid 1px;
 }

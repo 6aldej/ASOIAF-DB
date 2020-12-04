@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Cinzel';
+    src: url(./fonts/Cinzel-Regular.ttf);
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -7,6 +12,7 @@
 
 body {
     overflow-x: hidden;
+    font-family: 'Cinzel';
     background: url('./img/background.jpg');
     background-position: center center;
     background-repeat: no-repeat;

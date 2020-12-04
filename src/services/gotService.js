@@ -56,11 +56,22 @@ export default class gotService {
     }
 
     isSet(data) {
-        if (data) {
-            return data
+        if (typeof data === 'object') {
+            const newData = data.map(item => {
+                if (item) {
+                    return item
+                } else {
+                    return 'unknown'
+                }
+            })
+            return newData
         } else {
-            return 'unknown'
-        }
+                if (data) {
+                    return data
+                } else {
+                    return 'unknown'
+                }
+            }
     }
 
     _extractId = (item) => {
