@@ -2,4 +2,4 @@
 
 ....
 
-🌍Деплой приложения на **Heroku**: <https://games-of-thrones-db.herokuapp.com/>.
+🌍Деплой приложения на **Heroku**: <https://a-song-of-ice-and-fire-db.herokuapp.com/>.
