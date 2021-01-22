@@ -1,3 +1,3 @@
 # ASOIAF-DB
 
- 🌍Деплой приложения на **Firebase:** <https://a-song-of-ice-and-fire-db.herokuapp.com/>.  
+ 🌍Деплой приложения на **Heroku:** <https://a-song-of-ice-and-fire-db.herokuapp.com/>.  
